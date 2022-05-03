@@ -1,0 +1,51 @@
+<ng-container *ngIf="true">
+ <div class="container">
+    <div class="card-table">
+        <div class="cart-product">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+   <th>Sr.No </th>
+   
+   <th>title</th>
+   
+   <th>description</th>
+   <th>thumbnail</th> 
+   <th>Actions</th>                </tr>
+               </thead>
+               <tbody>
+                   <tr *ngFor="let item of List;let i = index">
+                       <td>{{i+1}}                        
+                       </td>
+                       
+                       
+                       <td>{{item.title}}</td>
+                      
+                       <td>{{item.description}}</td>
+                       <td> <img [src]="item.thumbnail"></td>
+                       <td><button (click)="removeVideo(item)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
+                   </tr>
+               </tbody>
+            </table>
+        </div>
+    </div>
+ </div>
+
+
+</ng-container>
+<ng-container *ngIf="false">
+<div class="container">
+    <div class="card">
+        <h5 class="card-title">My Fav</h5> 
+
+    </div>
+
+<div class="center">
+    <img src="" alt="">
+    <h4>No Favourte addeed</h4>
+    <h6>Add Favourte</h6>
+    <button class="btn btn-primary">Add Now</button>
+</div>
+
+</div>
+</ng-container>

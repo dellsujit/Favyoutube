@@ -1,0 +1,23 @@
+<div class="ui centered grid" style="margin-top: 3rem;">
+  <div class="fourteen wide column">
+
+    <h1 class="ui centered aligned header">
+      <span style="vertical-align: middle;">What's On Your Mind?</span>
+    </h1>
+    
+    
+  </div>
+</div>
+<div>
+  <app-search-input (search)="handleSearch($event)"></app-search-input>
+  <div *ngIf="inputTouched && !videosList.length" class="ui four wide column centered grid" style="margin: 3rem;">
+    <div class="ui raised aligned segment red warning message">
+      <i class="warning icon"></i>
+      <span class="ui centered" style="margin: 0 auto;">No Video Found</span>
+    </div>
+  </div>
+  <div *ngIf="loading" style="margin: 3rem;">
+    <div class="ui active centered inline loader"></div>
+  </div>
+  <app-search-list *ngIf="!loading" [videos]="videosList" ></app-search-list>
+</div>
