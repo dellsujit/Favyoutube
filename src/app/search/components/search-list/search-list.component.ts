@@ -13,8 +13,8 @@ export class SearchListComponent implements OnInit {
 
   @Input() videos: Video ;
  
-  displayName =false
-  addedToWishlist: boolean=false;
+  
+  @Input () addedToWishList: boolean;
  
 
   
@@ -28,49 +28,39 @@ export class SearchListComponent implements OnInit {
 
     handleAddToWishList()
     {
-      this.youtube.addFav(this.videos).subscribe(()=>{
-        this.addedToWishlist=true; 
+      this.youtube.addFav(this.videos.videoId).subscribe(()=>{
+        this.addedToWishList=true; 
       })
       }
 
       handleRemoveWishList()
       {
-        this.youtube.removeFav(this.videos).subscribe((abc:any)=>
+        this.youtube.removeFav(this.videos.videoId).subscribe(()=>
         {
-          this.addedToWishlist = false;
-         console.warn(abc);
+          this.addedToWishList = false;
+        
         
         })
   }
 
+  
   addtofav(video:any)
   {
     
     this.favservice.addtocart(video)
-    
-    this.addedToWishlist=true
-    this.youtube.addFav(video).subscribe(()=>{
 
-      this.addedToWishlist=true; 
-    })
-
-    
-  
   }
+
   removeVideo(item:any){
     this.favservice.removeCartItem(item);
-    this.addedToWishlist = false;
+    
+   
     
     
   }
-
-  
 
 
 }
-
-
-
 
 
 

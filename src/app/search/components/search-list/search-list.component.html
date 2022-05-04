@@ -1,18 +1,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
 integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
 
-<div class="ui four column grid">
-  <div>
-    <div  *ngIf = "!addedToWishlist">
-    <button   class="btn btn-primary" (click)=addtofav(videos)>Add to favourite</button>
-  </div>
 
-  <div *ngIf = "addedToWishlist">
-    <button  class="fas fa-heart float-right" (click)=removeVideo(videos)>Ufavourite</button>
-  </div>
+  <div>
+    
+   
   
-    <i *ngIf = "addedToWishlist;" class="fas fa-heart float-right" (click) = handleAddToWishList()></i> 
-    <i *ngIf = "!addedToWishlist" class="far fa-heart float-right" (click) =  handleRemoveWishList()></i>
+    
+
+ 
+    <i *ngIf = "addedToWishList" class="fas fa-heart float-right" (click)=removeVideo(videos) (click) =  handleRemoveWishList()></i>
+    <i *ngIf = "!addedToWishList" class="far fa-heart float-right" (click)=addtofav(videos) (click) = handleAddToWishList()></i> 
+
     <div class="ui card">
       <div class="image">
         <img [src]="videos.thumbnail">
@@ -43,5 +42,5 @@ integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="ano
       
     </div>
   </div>
-</div>
+
 

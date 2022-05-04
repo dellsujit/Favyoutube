@@ -30,25 +30,25 @@ export class SearchService {
   getWishlist() {
     return this.http.get(this.whishlisturl).pipe(
       map((result: any[]) => {
-        let productIds = []
+        let VideosIds = []
 
-        result.forEach(item => productIds.push(item.id))
+        result.forEach(item => VideosIds.push(item.videoId))
 
-        return productIds;
+        return VideosIds;
       })
     )
   }
 
 
   addFav(VideoId: any){
-    return this.http.post("http://localhost:3000/Favourite" ,VideoId)
+    return this.http.post("http://localhost:3000/Favourite" ,{id:VideoId})
     
   
 }
 
     removeFav(VideoId: any) 
     {
-      return this.http.delete("http://localhost:3000/Favourite"+'/' + VideoId);
+      return this.http.delete("http://localhost:3000/Favourite/"+ VideoId);
 
     }
 
