@@ -19,5 +19,7 @@
   <div *ngIf="loading" style="margin: 3rem;">
     <div class="ui active centered inline loader"></div>
   </div>
-  <app-search-list *ngIf="!loading" [videos]="videosList" ></app-search-list>
+  <div class="column" *ngFor="let video of videosList">
+  <app-search-list [videos]="video" ></app-search-list>
+</div>
 </div>

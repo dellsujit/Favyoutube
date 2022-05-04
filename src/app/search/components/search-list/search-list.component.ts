@@ -11,10 +11,10 @@ import { CartService } from 'src/app/service/cart.service';
 })
 export class SearchListComponent implements OnInit {
 
-  @Input() videos: Video[] ;
+  @Input() videos: Video ;
  
- 
-  addedToWishlist: boolean;
+  displayName =false
+  addedToWishlist: boolean=false;
  
 
   
@@ -22,32 +22,35 @@ export class SearchListComponent implements OnInit {
 
   ngOnInit()
    {
-     
 
    }
 
-    handleAddToWishList(data:any)
+
+    handleAddToWishList()
     {
-      this.youtube.addFav(data).subscribe(()=>{
+      this.youtube.addFav(this.videos).subscribe(()=>{
         this.addedToWishlist=true; 
       })
       }
 
-      handleRemoveWishList(data:any)
+      handleRemoveWishList()
       {
-        this.youtube.removeFav(data).subscribe(()=>
+        this.youtube.removeFav(this.videos).subscribe((abc:any)=>
         {
           this.addedToWishlist = false;
-         
+         console.warn(abc);
         
         })
   }
 
   addtofav(video:any)
   {
+    
     this.favservice.addtocart(video)
+    
     this.addedToWishlist=true
     this.youtube.addFav(video).subscribe(()=>{
+
       this.addedToWishlist=true; 
     })
 
@@ -57,12 +60,7 @@ export class SearchListComponent implements OnInit {
   removeVideo(item:any){
     this.favservice.removeCartItem(item);
     this.addedToWishlist = false;
-    this.youtube.removeFav(item).subscribe(()=>
-        {
-          this.addedToWishlist = false;
-         
-        
-        })
+    
     
   }
 

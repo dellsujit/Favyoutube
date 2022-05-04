@@ -2,33 +2,39 @@
 integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
 
 <div class="ui four column grid">
-  <div class="column" *ngFor="let video of videos">
-    <button class="btn btn-primary" (click)=addtofav(video)>Add to favourite</button> 
-    <button class="btn btn-primary" (click)=removeVideo(video)>Ufavourite</button>
-   
+  <div>
+    <div  *ngIf = "!addedToWishlist">
+    <button   class="btn btn-primary" (click)=addtofav(videos)>Add to favourite</button>
+  </div>
+
+  <div *ngIf = "addedToWishlist">
+    <button  class="fas fa-heart float-right" (click)=removeVideo(videos)>Ufavourite</button>
+  </div>
+  
+    <i *ngIf = "addedToWishlist;" class="fas fa-heart float-right" (click) = handleAddToWishList()></i> 
+    <i *ngIf = "!addedToWishlist" class="far fa-heart float-right" (click) =  handleRemoveWishList()></i>
     <div class="ui card">
       <div class="image">
-        <img [src]="video.thumbnail">
+        <img [src]="videos.thumbnail">
       </div>
       <div class="content">
-        <a class="header" style="margin: 1em 0 1em 0;">{{ video.title }}</a>
+        <a class="header" style="margin: 1em 0 1em 0;">{{ videos.title }}</a>
         <div class="meta">
           <span class="date" style="font-weight: bolder;">
-            <a [href]="video.channelUrl" target="_blank">{{ video.channelTitle }}</a>
+            <a [href]="videos.channelUrl" target="_blank">{{ videos.channelTitle }}</a>
           </span>
-          <span class="ui right floated date" style="font-weight: bolder;">{{ video.publishedAt | date:'mediumDate' }}</span>
+          <span class="ui right floated date" style="font-weight: bolder;">{{ videos.publishedAt | date:'mediumDate' }}</span>
         </div>
         <div class="description">
-          {{ video.description?.slice(0,50) }}...
+          {{ videos.description?.slice(0,50) }}...
         </div>
       </div>
-      <a [href]="video.videoUrl" target="_blank" class="extra content">
+      <a [href]="videos.videoUrl" target="_blank" class="extra content">
         <button class="ui right floated tiny red right labeled icon button">
           <i class="external alternate icon"></i>
           Watch
         </button>
-        <i *ngIf = "addedToWishlist" class="fas fa-heart float-right" (click) = removeVideo(video)></i> 
-        <i *ngIf = "!addedToWishlist" class="far fa-heart float-right" (click) = addtofav(video)></i>
+       
         
       </a>
        

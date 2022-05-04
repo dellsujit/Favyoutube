@@ -11,7 +11,7 @@ import { Video } from '../models/search.interface';
 export class SearchService {
 
   private API_URL = 'https://www.googleapis.com/youtube/v3/search';
-  private API_TOKEN = 'AIzaSyBig3j8GHSZnzGXti5VLW6TGQ1Le8vTgik';
+  private API_TOKEN = 'AIzaSyBQSd-_bqtg5szRlEK2bOvEZMeV6mS2qeY';
 
   constructor(private http: HttpClient) {}
 
@@ -48,7 +48,7 @@ export class SearchService {
 
     removeFav(VideoId: any) 
     {
-      return this.http.delete("http://localhost:3000/Favourite/"+VideoId);
+      return this.http.delete("http://localhost:3000/Favourite"+'/' + VideoId);
 
     }
 
