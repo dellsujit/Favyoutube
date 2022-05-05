@@ -11,7 +11,7 @@ import { Video } from '../models/search.interface';
 export class SearchService {
 
   private API_URL = 'https://www.googleapis.com/youtube/v3/search';
-  private API_TOKEN = 'AIzaSyBQSd-_bqtg5szRlEK2bOvEZMeV6mS2qeY';
+  private API_TOKEN = 'AIzaSyC20rPca_GBsAFusbYFnT7mPszYFl2w53Y';
 
   constructor(private http: HttpClient) {}
 
@@ -32,7 +32,7 @@ export class SearchService {
       map((result: any[]) => {
         let VideosIds = []
 
-        result.forEach(item => VideosIds.push(item.videoId))
+        result.forEach(item => VideosIds.push(item.id))
 
         return VideosIds;
       })

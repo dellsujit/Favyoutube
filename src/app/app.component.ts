@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ViewTube';
+  darkmode=false;
+  modetoogle()
+  {
+    this.darkmode=!this.darkmode;
+    document.documentElement.setAttribute('data-theme',this.darkmode ? "dark":"light"); 
+  }
 }

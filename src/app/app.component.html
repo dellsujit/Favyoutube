@@ -1,3 +1,5 @@
+<div class="wrapper">
+  <div class="content">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
 integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
 <mat-toolbar color ="primary">
@@ -7,8 +9,11 @@ integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="ano
   <button routerLink="Fav" class="byn btn-primary">
     Favourite
   </button>
+  <button (click)="modetoogle()">Change Mode</button>
 </div>
 </mat-toolbar>
 
 
 <router-outlet></router-outlet>
+</div>
+</div>
